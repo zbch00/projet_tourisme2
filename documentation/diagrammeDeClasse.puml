@@ -1,0 +1,37 @@
+@startuml
+
+class Etablissement {
+    nom : string
+    slug : string
+    description : text
+    num_tel : string
+    adresse_postal : string
+    ville : Ville
+    adresse_mail : string
+    image : string
+    actif : bool
+    accueil : bool
+    createdAt : date
+    updatedAt  : date
+    categorie : array
+}
+
+class Ville {
+    nom : string
+    cp : string
+    nom_dep : string
+    num_dep : int
+    nom_region : string
+}
+
+class Categorie {
+    nom : string
+    createdAt : date
+}
+
+
+Etablissement "0..*" -- "1..1" Ville
+Etablissement "0..*" -- "1..*" Categorie
+
+
+@enduml

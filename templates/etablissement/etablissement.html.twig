@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5">Détails de l'établissement</h1>
+    <div>
+        <h2><a href="{{ path("app_etablissements") }}">{{ etablissement.nom }}</a></h2>
+        <p class="fst-italic">Crée le {{ etablissement.createdAt | date("d/m/Y") }}</p>
+        <h4 ><span class="badge bg-secondary">Catégorie : {{ etablissement.categorie.nom }}</span></h4>
+        <h3 class="m-4">{{ etablissement.description }}</h3>
+        <h3 class="m-4">{{ etablissement.num_tel}}</h3>
+        <h3 class="m-4">{{ etablissement.adresse_postal }}</h3>
+        <h3 class="m-4">{{ etablissement.ville}}</h3>
+        <h3 class="m-4">{{ etablissement.adresse_mail}}</h3>
+
+
+    </div>
+
+{% endblock %}

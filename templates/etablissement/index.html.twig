@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissements{% endblock %}
+
+{% block body %}
+    <h1>Liste des établissement</h1>
+    {% for etablissement in etablissements %}
+        {% if etablissement.actif = 1 %}
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ path("app_etablissements") }}">{{ etablissement.nom }}</a></h5>
+                    <p class="card-text">{{ etablissement.description }}</p>
+                    <a href="#" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div class="navigation d-flex justify-content-center ">
+        {{ knp_pagination_render(etablissements) }}
+    </div>
+{% endblock %}
